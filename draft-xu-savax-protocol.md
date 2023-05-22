@@ -83,7 +83,7 @@ informative:
         ins: Institute for Network Sciences and Cyberspace
         org: Tsinghua University
         name: Yangfei Guo
-    date: 2021
+    date: 2023
 
 
 # --- note_IESG_Note
@@ -250,10 +250,10 @@ Action:
 : 8-bit, 1 for add or update this SMI_Rec.
 
 Source ADID_Rec:
-: Variable-length field. Refer to ADID_Rec {{SAVA-X-Control}}.
+: Variable-length field. Refer to ADID_Rec {{savax-control}}.
 
 Destination ADID_Rec:
-: Variable-length field. Refer to ADID_Rec in {{SAVA-X-Control}}.
+: Variable-length field. Refer to ADID_Rec in {{savax-control}}.
 
 State Mathine ID:
 : 32-bit, the ID used to identify the state machine, which is unique to a specific ordered AD pair and grows monotonically in use. It is used to distinguish the sequence before and after the generation of multiple state machines.
@@ -773,7 +773,7 @@ Action:
 : 8-bit filed. 1 for add (ADD=1) and 2 for delete (DEL=2).
 
 Source ADID_Rec:
-: Variable-length field. Refer to ADID_Rec in {{SAVA-X-Control}}.
+: Variable-length field. Refer to ADID_Rec in {{savax-control}}.
 
 Destination ADID_Rec:
 : Variable-length field. Refer to ADID_Rec.
