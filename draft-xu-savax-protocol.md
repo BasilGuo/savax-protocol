@@ -64,7 +64,7 @@ informative:
   savax-control:
     title: Control Plane of Inter-Domain Source Address Validation Architecture
     author:
-      - 
+      -
         ins: Computer Science
         org: Tsinghua University
         name: Ke Xu
@@ -81,7 +81,7 @@ informative:
         name: Xiaoliang Wang
       -
         ins: Institute for Network Sciences and Cyberspace
-        org: Tsinghua University 
+        org: Tsinghua University
         name: Yangfei Guo
     date: 2021
 
@@ -174,7 +174,7 @@ Number of Records:
 
 Transaction Number:
 : 32-bit, this is the identification of a publication, query or response, and the value should increase monotonically. And different I Types MUST have its own Transaction Number. Through this field, ACS can locate which information has been resolved wrongly and corrected it.
-  
+
 Acknowledgement Number:
 : 32-bit, it is only be filled when S Type is ACK, NAK, AACK, ANAK, RACK or RNAK. Otherwise it is should be filled as 0.
 
@@ -298,17 +298,17 @@ All SMI_Recs in Data field should have an unique SM_ID. When Action  is ADD and 
 When receiving a non-RENEW packet, if it cannot resolve this message,  destination ACS should send a NAK message to source ACS. When  destination ACS can resolve the packet correctly, it SHOULD:
 
 1. Compare the Transaction Number in this packet with Transaction  Number received from the same ACS before. Otherwise, destination ACS  would discard this packet and send a SM_INFO-Request to request the  lastest information of state machine. SM_INFO-Request is defined at  {{SM_INFO-Request}}. If bigger, destination ACS WOULD:
-2. Accept every SMI_Rec and process them as following: 
+2. Accept every SMI_Rec and process them as following:
   - If the SM_ID in SMI_Rec equals to current used SM_ID, destination ACS would update the current used SM_ID.
-  - If the SM_ID in SMI_Rec bigger than current used SM_ID, destination ACS would add this state machine to its following used state machine list. 
+  - If the SM_ID in SMI_Rec bigger than current used SM_ID, destination ACS would add this state machine to its following used state machine list.
 3. And then destination ACS will send an SM_INFO-AACK message to source ACS.
 
 When receiving a RENEW packet, if it cannot resolve this message, destination ACS should send a SM_INFO-ANAK message to source ACS. When destination ACS can resolve the packet correctly, it SHOULD:
 
 1. Compare the Transaction Number in this packet with Transaction Number received from the same ACS before. Otherwise, destination ACS would discard this packet and send a SM_INFO-Request to request the lastest information of state machine. If bigger, destination ACS WOULD:
-2. Accept every SMI_Rec and process them as following: 
-  - If the SM_ID in SMI_Rec equals to current used SM_ID, destination ACS would update the current used SM_ID. 
-  - If the SM_ID in SMI_Rec bigger than current used SM_ID, 
+2. Accept every SMI_Rec and process them as following:
+  - If the SM_ID in SMI_Rec equals to current used SM_ID, destination ACS would update the current used SM_ID.
+  - If the SM_ID in SMI_Rec bigger than current used SM_ID,
     destination ACS would add this state machine to its following used state machine list. Especially, state machines will be     removed right now when they are not listed in the SMI_Recs but they are in using.
 3. And then destination ACS will send an SM_INFO-AACK message to source ACS.
 
@@ -345,16 +345,16 @@ State machine information request (SM_INFO-Request) is sent from source ACS to d
 |Acknowledgement Number |0|
 | Data |None|
 
-When source ACS receives a SM_INFO-Request message, it would send a SM_INFO-RNAK message to destination ACS if some fields are wrong. Otherwise, source ACS would send an SM_INFO-RACK message to destination ACS and process this SM_INFO-Request message. Source ACS should compare the Transaction Number in this message with Transaction Number received from the same destination ACS before. Otherwise, source ACS would discard this packet. If bigger, source ACS would send an SM_INFO-RACK message to destination ACS. 
+When source ACS receives a SM_INFO-Request message, it would send a SM_INFO-RNAK message to destination ACS if some fields are wrong. Otherwise, source ACS would send an SM_INFO-RACK message to destination ACS and process this SM_INFO-Request message. Source ACS should compare the Transaction Number in this message with Transaction Number received from the same destination ACS before. Otherwise, source ACS would discard this packet. If bigger, source ACS would send an SM_INFO-RACK message to destination ACS.
 
 There are two types of reply of SM_INFO-Request message, i.e. SM_INFO-RACK representing affirmative acknowledgement and SM_INFO-RNAK representing negative acknowledgement. These are sent from source ACS to destination ACS. The mainly part of packet is filled by source ACS as follows: I Type is SM_INFO. S Type is RACK if it is affirmative acknowledgement or RNAK if it is negative acknowledgement. Operation is NULL. When S Type is RACK, Data field is a few of SMI_Recs. When S  Type is RNAK, Data field is a 32-bit error code.
 
 When receiving a SM_INFO-RACK message, if it cannot resolve this message, destination ACS should send a SM_INFO-Request message to source ACS to acquire another state machine. When destination ACS can resolve the message correctly, it SHOULD:
 
 1. Compare the Transaction Number in this packet with Transaction Number received from the same source ACS before. Otherwise, destination ACS would discard this packet and send a SM_INFO-Request to request the lastest information of state machine. If bigger, destination ACS WOULD:
-2. Accept every SMI_Rec and process them as following: 
-  - If the SM_ID in SMI_Rec equals to current used SM_ID, destination ACS would update the current used SM_ID. 
-  - If the SM_ID in SMI_Rec bigger than current used SM_ID, destination ACS would add this state machine to its following used state machine list. 
+2. Accept every SMI_Rec and process them as following:
+  - If the SM_ID in SMI_Rec equals to current used SM_ID, destination ACS would update the current used SM_ID.
+  - If the SM_ID in SMI_Rec bigger than current used SM_ID, destination ACS would add this state machine to its following used state machine list.
 3. And then destination ACS will send an SM_INFO-AACK message to source ACS.
 
 When receiving a SM_INFO-RNAK message, if it cannot resolve this message, destination ACS should send a SM_INFO-Request message to source ACS to acquire new state machine. When destination ACS can resolve the message correctly, it SHOULD compare the Transaction Number in this packet with Transaction Number received from the same source ACS before. Otherwise, destination ACS would discard this packet and send a SM_INFO-Request to request the lastest information of state machine. If bigger, destination ACS WOULD send a new correct SM_INFO-Request message to source ACS.
@@ -392,11 +392,11 @@ Response of diagnose information (DIAG_INFO-Response) replys from source ACS to 
 | Data |a 32-bit error code defined below. |
 
 
-Before it sends the DIAG_INFO-Request message, the destination ACS should check its own configuration and gurantee they are correct. 
+Before it sends the DIAG_INFO-Request message, the destination ACS should check its own configuration and gurantee they are correct.
 
 If it receives a DIAG_INFO-Request message, the source ACS would check the communication with its own AER whether correct or not.
 
-1. If it's wrong, source ACS would reply a DIAG_INFO-Response message in which its Data filed is filled with 2 for fault cannot be repaired and alarm to administrator to deal with this problem. 
+1. If it's wrong, source ACS would reply a DIAG_INFO-Response message in which its Data filed is filled with 2 for fault cannot be repaired and alarm to administrator to deal with this problem.
 2. If it's right, source ACS would RENEW all the registration information, prefix information and state machine information to its all AERs. After that, source ACS will reply a DIAG_INFO-Response message in which its Data filed is filled with 1 for all runs correctly after repairing.
 
 # ACS-AER Communication Protocol
@@ -410,11 +410,11 @@ After connecting with AER, ACS deploys the AD Registration Information (REG_INFO
 
 It should be noted that when there are two ARI_Recs in Data fields responding to the same AD, one may effect right now and the other effects after passing Effecting Time. When AER receives this message, all of them should be restored in the trust alliance list and AER MUST process them orderly. Since the protocol processes the records in sequence, it is required that the ARI_Rec effecting at the current time for the same member AD should appear in front of another updating ARI_Rec.
 
-When receiving a non-RENEW packet, if it cannot resolve this message, AER could send a REG_INFO-Request message to acquire the latest AD registration information. 
+When receiving a non-RENEW packet, if it cannot resolve this message, AER could send a REG_INFO-Request message to acquire the latest AD registration information.
 
 When AER can resolve this message correctly, it SHOULD:
 
-1. Compare the Transaction Number in this packet with Transaction Number received from the same ACS before. If bigger, AER WOULD accept every ARI_Rec and process them as follows. Otherwise, AER would discard this packet and send a REG_INFO-RequestAll message to acquire the lastest information of AD registration information. 
+1. Compare the Transaction Number in this packet with Transaction Number received from the same ACS before. If bigger, AER WOULD accept every ARI_Rec and process them as follows. Otherwise, AER would discard this packet and send a REG_INFO-RequestAll message to acquire the lastest information of AD registration information.
 
 2. Process every ARI_Rec:
   - If Action is ADD and the record does not exist in its maintained trust alliance list, AER would add this record to its trust alliance list.
@@ -423,12 +423,12 @@ When AER can resolve this message correctly, it SHOULD:
   - If Action is DEL and the record exists in its maintained trust alliance list, AER would remove this record from its trust alliance list after passing Effecting Time in this ARI_Rec.
 3. If a change is made in step 2, the update should take effect after passing the Effecting Time, which acts on the data plane. If the Effecting Time is earlier than the current time or is all 0, it will take effect immediately.
 
-AER acts as following when receiving a RENEW packet. When ACS initiates RENEW, it would send a RENEW meesge with which the first bit of Operation field is 1. The second bit of Operation field identifies the begin of a procedure of RENEW and the third bit of Operation field identifies the end of a procedure of RENEW. ACS MUST NOT send a RENEW packet with which the first bit of Operation field is 0 in RENEWing. AER MUST process this procedure of RENEW after 
+AER acts as following when receiving a RENEW packet. When ACS initiates RENEW, it would send a RENEW meesge with which the first bit of Operation field is 1. The second bit of Operation field identifies the begin of a procedure of RENEW and the third bit of Operation field identifies the end of a procedure of RENEW. ACS MUST NOT send a RENEW packet with which the first bit of Operation field is 0 in RENEWing. AER MUST process this procedure of RENEW after
 received all RENEW packets.
 
 When AER can resolve this packet correctly, it SHOULD:
 
-1. Compare the Transaction Number in this packet with Transaction Number received from the same ACS before. If bigger, AER would accept every ARI_Rec and process them as follows. Otherwise, AER would discard this packet and send a REG_INFO-RequestAll message to acquire the lastest information of AD registration information. 
+1. Compare the Transaction Number in this packet with Transaction Number received from the same ACS before. If bigger, AER would accept every ARI_Rec and process them as follows. Otherwise, AER would discard this packet and send a REG_INFO-RequestAll message to acquire the lastest information of AD registration information.
 2. Process every ARI_Rec:
 - If the record does not exist in its maintained trust alliance list, AER would add this record to its trust alliance list.
 - If the record exists in its maintained trust alliance list but ACS Address is changed, AER would add this record to its trust alliance list and delete original record after passing Effecting Time in this ARI_Rec.
@@ -478,7 +478,7 @@ It should be noted that when there are two ARI_Recs in Data fields responding to
 
 When receiving a non-RENEW REG_INFO-ACK message, if it holds that some fields are wrong, AER could send a REG_INFO-RequestAll message to acquire the latest AD registration information. Otherwise, AER would act as follows.
 
-1. AER SHOULD compare the Transaction Number in this packet with Transaction Number received from the same ACS before. If bigger, AER would process them as follows. Otherwise, AER would discard this packet and send a REG_INFO-RequestAll message to acquire the lastest information of AD registration information. 
+1. AER SHOULD compare the Transaction Number in this packet with Transaction Number received from the same ACS before. If bigger, AER would process them as follows. Otherwise, AER would discard this packet and send a REG_INFO-RequestAll message to acquire the lastest information of AD registration information.
 2. AER WOULD processes every ARI_Rec:
 - If Action is ADD and the record does not exist in its maintained trust alliance list, AER would add this record to its trust alliance list.
   - If Action is ADD and the record exists in its maintained trust alliance list but ACS Address is changed, AER would add this record to its trust alliance list and delete original record after passing Effecting Time in this ARI_Rec.
@@ -490,7 +490,7 @@ AER acts as following when receiving a RENEW REG_INFO-ACK message. When ACS init
 
 When AER can resolve this packet correctly, it SHOULD:
 
-1. Compare the Transaction Number in this packet with Transaction Number received from the same ACS before. If bigger, AER would accept every ARI_Rec and process them as step 2. Otherwise, AER would discard this packet and send a REG_INFO-RequestAll message to acquire the lastest information of AD registration information. 
+1. Compare the Transaction Number in this packet with Transaction Number received from the same ACS before. If bigger, AER would accept every ARI_Rec and process them as step 2. Otherwise, AER would discard this packet and send a REG_INFO-RequestAll message to acquire the lastest information of AD registration information.
 2. Process every ARI_Rec:
   - If the record does not exist in its maintained trust alliance list, AER would add this record to its trust alliance list.
   - If the record exists in its maintained trust alliance list but ACS Address is changed, AER would add this record to its trust alliance list and delete original record after passing Effecting Time in this ARI_Rec.
@@ -541,7 +541,7 @@ AER acts as following when receiving a RENEW PFX_INFO-Deploy message. When ACS i
 3. If a change is made in step 2, the update should take effect after passing the Effecting Time, which acts on the data plane. If the Effecting Time is earlier than the current time or is all 0, it will take effect immediately.
 
 ### Request of AD Prefix Information
-AD prefix information request (PFX_INFO-RequestAll) is sent from AER to ACS to query some member ADs', including itself, all latest AD prefix information. 
+AD prefix information request (PFX_INFO-RequestAll) is sent from AER to ACS to query some member ADs', including itself, all latest AD prefix information.
 
 AER fills in the following values for each field:
 
@@ -592,7 +592,7 @@ When receiving a non-RENEW PFX_INFO-ACK message which is the positive reply to t
 AER acts as following when receiving a RENEW PFX_INFO-ACK message. When ACS initiates RENEW process, it would send a RENEW meesge with which the first bit of Operation field is 1. The second bit of Operation field identifies the begin of a procedure of RENEW and the third bit of Operation field identifies the end of a procedure of RENEW. ACS MUST NOT send a RENEW packet with which the first bit of Operation field is 0 in RENEW process. AER SHOULD uniformly process all packets in this RENEW process after receiving all RENEW packets.
 
 1. AER SHOULD compare the Transaction Number in this packet with Transaction Number whose I Type is PFX_INFO received from the same ACS before. If bigger, AER WOULD process as step 2. Otherwise, AER would discard this message and send REG_INFO-RequestAll and PFX_INFO-RequestAll messages to acquire the lastest information.
-2. AER processes every API_Rec. All Action in API_Recs is ADD during 
+2. AER processes every API_Rec. All Action in API_Recs is ADD during
 RENEW process.
   - If the record does not exist in its maintained prefix list, AER would add this record to its trust alliance list.
   - If the record exists in its maintained prefix list, AER would do nothing.
@@ -655,7 +655,7 @@ State machine information request (SM_INFO-Request) is sent from AER to ACS. AER
 |Acknowledgement Number |0|
 | Data |S Type = REQUEST: One or more ADID_Recs. S Type = REQUEST_ALL: none. There is no boundary identification between these ADID_Recs, which requires that the implementation of the protocol can process each record sequentially until the end of this message.|
 
- 
+
 For example, let this AD is AD1. When any ADID_Rec including in Data field, defined as AD2, it means that AER will request the SM(AD1, AD2) and SM(AD2, AD1). When ACS replies, it will reply these two state machines both.
 
 When receiving a SM_INFO-Request(All) message, if it holds that some fields are wrong, ACS could send a PFX_INFO-NAK. Otherwise, ACS would act as follows. The specific construction methods of SM_INFO-ACK and SM_INFO-NAK are described in secion 3.2.3.3.
@@ -727,7 +727,7 @@ ACS considers that AER has gone wrong if it does not receive a response from AER
 
 ### Response of Keep-alive Information
 
-Keep-alive information response (ALIVE_INFO-Response) is sent by AER to reply the ALIVE_INFO-Request message. 
+Keep-alive information response (ALIVE_INFO-Response) is sent by AER to reply the ALIVE_INFO-Request message.
 
 In response to ALIVE_INFO-Request, AER fills in the following values for each field in the response:
 
