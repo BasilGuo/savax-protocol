@@ -1,0 +1,111 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2023-05-23T00:31:44.409132+00:00",
+  "repo": "BasilGuo/savax-protocol",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJl8A085Q-v_-",
+      "title": "Update and rename draft-todo-yourname-protocol.md to draft-xu-savax-protocol.md",
+      "url": "https://github.com/BasilGuo/savax-protocol/pull/1",
+      "state": "MERGED",
+      "author": "BasilGuo",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Update and rename draft-todo-yourname-protocol.md to draft-xu-savax-protocol.md\r\n\r\ninit repo",
+      "createdAt": "2023-05-22T06:32:47Z",
+      "updatedAt": "2023-05-22T06:44:51Z",
+      "baseRepository": "BasilGuo/savax-protocol",
+      "baseRefName": "main",
+      "baseRefOid": "d6bfa6f223caabcdd4c63158a0dc03ea6e7f0379",
+      "headRepository": "BasilGuo/savax-protocol",
+      "headRefName": "initial",
+      "headRefOid": "4481be9b2df1d298b68fa20eb07bc5182e71c829",
+      "closedAt": "2023-05-22T06:44:50Z",
+      "mergedAt": "2023-05-22T06:44:50Z",
+      "mergedBy": "BasilGuo",
+      "mergeCommit": {
+        "oid": "96bd1a2800be0b5f7525c3aafdc9117b014713f9"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOJl8A085Q-1jc",
+      "title": "Update draft-xu-savax-protocol.md",
+      "url": "https://github.com/BasilGuo/savax-protocol/pull/2",
+      "state": "MERGED",
+      "author": "BasilGuo",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "update: gh-pages and version 04.",
+      "createdAt": "2023-05-22T06:53:21Z",
+      "updatedAt": "2023-05-22T06:56:21Z",
+      "baseRepository": "BasilGuo/savax-protocol",
+      "baseRefName": "main",
+      "baseRefOid": "9cabf98c9d1bba6cbb96f699dd7a09d2a0505905",
+      "headRepository": "BasilGuo/savax-protocol",
+      "headRefName": "v04-init",
+      "headRefOid": "1cc895747cc184ea94b4dda13c46cf2a63392141",
+      "closedAt": "2023-05-22T06:56:21Z",
+      "mergedAt": "2023-05-22T06:56:21Z",
+      "mergedBy": "BasilGuo",
+      "mergeCommit": {
+        "oid": "5dc2ee134148ef80df1be5a2bfe3418037ee310f"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
